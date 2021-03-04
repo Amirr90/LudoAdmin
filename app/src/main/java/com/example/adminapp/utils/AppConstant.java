@@ -42,4 +42,17 @@ public class AppConstant {
 
 
     public static final String CLOSED = "closed";
+
+    public static final String ADD_MONEY_QUERY = "AddMoney";
+    public static final String ADD_MONEY_STATUS_STARTED = "started";
+    public static final String ADD_MONEY_STATUS_SUCCESS = "success";
+    public static final String ADD_MONEY_STATUS_FAILED = "failed";
+    public static final String STATUS = "status";
+    public static final String MONEY_RECEIVED_QUERY = "MoneyReceived";
+    public static final String USERS_QUERY = "Users";
+    public static final String CREDITS = "credits";
+    public static final String INVEST = "invest";
+    public static final String EARN = "earn";
+    public static final String ON_HOLD = "onHold";
+    public static final String TYPE_CREDIT = "credit";
 }

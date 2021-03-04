@@ -9,5 +9,23 @@
         android:id="@+id/homeFragment"
         android:name="com.example.adminapp.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_bidDetailFragment"
+            app:destination="@id/bidDetailFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/bidDetailFragment"
+        android:name="com.example.adminapp.BidDetailFragment"
+        android:label="Bid Detail"
+        tools:layout="@layout/fragment_bid_detail">
+        <argument
+            android:name="bidId"
+            android:defaultValue="0"
+            app:argType="string" />
+    </fragment>
 </navigation>

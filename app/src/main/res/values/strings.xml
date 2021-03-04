@@ -2,4 +2,39 @@
     <string name="app_name">AdminApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="earned">Total Earned</string>
+    <string name="game_name">Game name</string>
+    <string name="game_id">Game Id</string>
+    <string name="biding_time">Biding Time</string>
+    <string name="bid_status">BID Status</string>
+    <string name="bidder_name">Bidder Name</string>
+    <string name="accept">Accept</string>
+    <string name="bid_amount">Bid Amount</string>
+    <string name="accept_bid">Accept Bid</string>
+    <string name="submit_bid">Submit BID</string>
+    <string name="add_credits">Add Credits</string>
+    <string name="total_invest">Total Invest</string>
+    <string name="total_wallet_value">Total Wallet Value</string>
+    <string name="transactions">Transactions</string>
+    <string name="logout">Logout</string>
+    <string name="my_bids">My Bids</string>
+    <string name="wallet">Wallet</string>
+    <string name="add">ADD</string>
+    <string name="withdraw_amount">Withdraw Amount</string>
+    <string name="paired">Paired</string>
+    <string name="active">Active</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="enter_amount_here">Enter amount here</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="enter_game_id">Enter Game Id</string>
+    <string name="notifications">Notifications</string>
+    <string name="msg_subscribed">subsscribed to newBid !!</string>
+    <string name="msg_subscribe_failed">subscribe to newBids failed !!</string>
+    <string name="enter_your_name">Enter Your name</string>
+    <string name="player_two">Player 2 Id</string>
+    <string name="contact_details">Contact Details</string>
+    <string name="accepted_by">Accepted By</string>
 </resources>

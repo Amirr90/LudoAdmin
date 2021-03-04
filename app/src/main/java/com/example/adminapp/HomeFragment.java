@@ -1,18 +1,19 @@
 package com.example.adminapp;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DividerItemDecoration;
 
 import com.example.adminapp.adapter.BidAdapter;
 import com.example.adminapp.adapter.PriceAdapter;
@@ -31,10 +32,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import okhttp3.internal.Util;
-
 import static com.example.adminapp.adapter.PriceAdapter.selectedPosition;
-import static com.example.adminapp.utils.AppConstant.*;
+import static com.example.adminapp.utils.AppConstant.BID_QUERY;
+import static com.example.adminapp.utils.AppConstant.GAME_STATUS;
+import static com.example.adminapp.utils.AppConstant.IS_ACTIVE;
+import static com.example.adminapp.utils.AppConstant.TIMESTAMP;
 import static com.example.adminapp.utils.Utils.getFireStoreReference;
 
 
@@ -51,6 +53,8 @@ public class HomeFragment extends Fragment implements AdapterInterface {
         return instance;
     }
 
+    NavController navController;
+
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,6 +66,7 @@ public class HomeFragment extends Fragment implements AdapterInterface {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
         setRecData();
 
 
@@ -81,7 +86,7 @@ public class HomeFragment extends Fragment implements AdapterInterface {
     public void setBidRecData(int position) {
         String type;
         if (position == 0)
-            type = "paired";
+            type = "onGoing";
         else if (position == 1)
             type = AppConstant.ON_GOING;
         else type = "";
@@ -133,5 +138,10 @@ public class HomeFragment extends Fragment implements AdapterInterface {
     @Override
     public void onItemClicked(Object obj) {
 
+        BidModel bidModel = (BidModel) obj;
+        Log.d(TAG, "onItemClicked: " + bidModel.getBidId());
+        HomeFragmentDirections.ActionHomeFragmentToBidDetailFragment action = HomeFragmentDirections.actionHomeFragmentToBidDetailFragment();
+        action.setBidId(bidModel.getBidId());
+        navController.navigate(action);
     }
 }
