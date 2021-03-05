@@ -3,10 +3,13 @@ package com.example.adminapp.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.adminapp.HomeScreen;
+import com.example.adminapp.R;
 import com.example.adminapp.databinding.AddCreditsHistoryViewBinding;
 import com.example.adminapp.interfaces.AdapterInterface;
 import com.example.adminapp.utils.AppConstant;
@@ -41,7 +44,11 @@ public class AddMoneyHistoryAdapter extends RecyclerView.Adapter<AddMoneyHistory
         holder.binding.textView.setText(AppUtils.getTimeAgo(snapshot.getLong(TIMESTAMP)));
         holder.binding.textView27.setText(AppUtils.getCurrencyFormat(snapshot.getString(AppConstant.AMOUNT)));
 
-        holder.binding.getRoot().setOnClickListener(v -> adapterInterface.onItemClicked(snapshot.getId()));
+        holder.binding.getRoot().setOnClickListener(v -> {
+            if (snapshot.getString(AppConstant.ADD_MONEY_STATUS).equals(AppConstant.PENDING))
+                adapterInterface.onItemClicked(snapshot.getId());
+
+        });
 
     }
 

@@ -63,11 +63,13 @@ public class AddAmountRequestFragment extends Fragment implements AdapterInterfa
     }
 
     private void loadData() {
+
         Utils.getFireStoreReference().collection(AppConstant.ADD_MONEY_REQUEST)
                 .orderBy(AppConstant.TIMESTAMP, Query.Direction.DESCENDING)
                 .limit(25)
                 .addSnapshotListener((queryDocumentSnapshots, e) -> {
                     if (e == null) {
+                        snapshots.clear();
                         snapshots.addAll(queryDocumentSnapshots.getDocuments());
                         adapter.notifyDataSetChanged();
                     } else Log.d(TAG, "onEvent: " + e.getLocalizedMessage());

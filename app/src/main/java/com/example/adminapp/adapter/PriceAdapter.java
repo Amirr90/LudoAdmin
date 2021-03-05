@@ -37,7 +37,11 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.PriceVH> {
         holder.binding.setHeaderModel(mainHeaderModel);
         holder.binding.textView5.setOnClickListener((View v) -> {
             selectedPosition = position;
-            HomeFragment.getInstance().setBidRecData(position);
+            if (position == 2) {
+                HomeScreen.getInstance().navigate(R.id.action_homeFragment_to_addAmountRequestFragment);
+            } else {
+                HomeFragment.getInstance().setBidRecData(position);
+            }
             notifyDataSetChanged();
         });
 
