@@ -1,10 +1,12 @@
 package com.example.adminapp.model;
 
+import java.util.List;
+
 public class BidRes {
 
     int responseCode;
     String responseMessage;
-    BidModel responseValue;
+    List<BidModel> responseValue;
 
     public int getResponseCode() {
         return responseCode;
@@ -22,11 +24,7 @@ public class BidRes {
         this.responseMessage = responseMessage;
     }
 
-    public BidModel getResponseValue() {
+    public List<BidModel> getResponseValue() {
         return responseValue;
-    }
-
-    public void setResponseValue(BidModel responseValue) {
-        this.responseValue = responseValue;
     }
 }

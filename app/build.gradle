@@ -81,4 +81,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
 
 
+    implementation 'com.zolad:zoominimageview:1.0.0'
+
+
 }

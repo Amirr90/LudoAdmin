@@ -38,16 +38,15 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp">
 
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ludo_image"
-                    android:visibility="visible"
+                <com.zolad.zoominimageview.ZoomInImageView
+                    android:id="@+id/iv_auto_image_slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="800dp"
+                    android:layout_marginTop="8dp"
+                    android:loadCustomImage="@{bidModel.image}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvResultUploadedBy" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -58,7 +57,7 @@
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tvBidingAmount"
@@ -66,8 +65,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-8dp"
                     android:fontFamily="@font/poppins_medium"
+                    android:text="@{bidModel.bidAmount}"
                     android:textColor="@android:color/holo_green_dark"
-                    android:textSize="26sp"
+                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="@+id/textView4"
                     app:layout_constraintStart_toStartOf="@+id/textView4"
                     app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -101,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="@{bidModel.bidAcceptBy}"
+                    android:text="@{bidModel.bidAccepterName}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:visibility="@{bidModel.bidAccepterName==null?View.GONE:View.VISIBLE}"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +112,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="@{bidModel.uid}"
+                    android:text="@{bidModel.name}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textView6" />
@@ -362,6 +362,20 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
+                <TextView
+                    android:id="@+id/tvResultUploadedBy"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="@{bidModel.resultUploadedBy.equals(bidModel.bidAcceptBy)?`Result uploaded By Player 2`:bidModel.resultUploadedBy.equals(bidModel.uid)?`Result uploaded By Player 1`:`result Not Uploaded !!`}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView21" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

@@ -20,6 +20,9 @@ public class BidModel {
     String winner;
     String loser;
 
+
+
+
     public String getWinner() {
         return winner;
     }

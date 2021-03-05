@@ -9,6 +9,7 @@ public class AppConstant {
     public static final String BID_ID = "bidId";
     public static final String GAME_IMAGE = "gameImage";
     public static final String ON_GOING = "onGoing";
+    public static final String AMOUNT = "amount";
     private static final String TAG = "Bid";
     private static final String BIDS = "Bids";
     public static final String UID = "uid";
@@ -55,4 +56,14 @@ public class AppConstant {
     public static final String EARN = "earn";
     public static final String ON_HOLD = "onHold";
     public static final String TYPE_CREDIT = "credit";
+
+
+    public static final String ADD_MONEY_REQUEST = "addMoneyRequest";
+    public static final String TRANSACTION_ID = "transactionId";
+    public static final String ADD_MONEY_STATUS = "addMoneyStatus";
+    public static final String PENDING = "pending";
+    public static final String WALLET_NUMBER = "walletNumber";
+    public static final String COMPLETED = "completed";
+
+
 }

@@ -1,7 +1,6 @@
 package com.example.adminapp.interfaces;
 
 
-
 import com.example.adminapp.model.BidRes;
 
 import retrofit2.Call;
@@ -12,5 +11,8 @@ public interface Api {
 
     @GET("updateBIdStatus")
     Call<BidRes> updateBidStatus(@Query("uid") String uid, @Query("bidId") String bidId);
+
+    @GET("updateAmountToUserWallet")
+    Call<BidRes> updateAmountToUserWallet(@Query("id") String uid);
 
 }

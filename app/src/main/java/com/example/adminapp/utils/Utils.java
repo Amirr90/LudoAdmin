@@ -11,6 +11,7 @@ public class Utils {
         List<MainHeaderModel> models = new ArrayList<>();
         models.add(new MainHeaderModel("Paired"));
         models.add(new MainHeaderModel("Completed"));
+        models.add(new MainHeaderModel("AddMoneyRequest"));
         return models;
     }
 

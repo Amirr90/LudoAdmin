@@ -49,6 +49,7 @@ public class BidDetailFragment extends Fragment {
         if (null != getArguments())
             bidId = BidDetailFragmentArgs.fromBundle(getArguments()).getBidId();
 
+        getBidData();
         bidDetailBinding.btnPlayer1.setOnClickListener(v -> {
             String playerId = bidDetailBinding.tvSetter.getText().toString();
             updateStatus(playerId);
@@ -77,7 +78,6 @@ public class BidDetailFragment extends Fragment {
             @Override
             public void onSuccess(Object obj) {
                 AppUtils.hideDialog();
-
                 Toast.makeText(requireActivity(), (String) obj, Toast.LENGTH_SHORT).show();
                 getBidData();
             }
@@ -103,7 +103,6 @@ public class BidDetailFragment extends Fragment {
                     }
                     bidModel = documentSnapshot.toObject(BidModel.class);
                     bidDetailBinding.setBidModel(bidModel);
-
 
                     if (null != bidModel) {
                         bidDetailBinding.tvBidingAmount.setText(AppUtils.getCurrencyFormat(bidModel.getBidAmount()));

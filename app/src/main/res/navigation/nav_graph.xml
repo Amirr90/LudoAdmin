@@ -17,6 +17,9 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_addAmountRequestFragment"
+            app:destination="@id/addAmountRequestFragment" />
     </fragment>
     <fragment
         android:id="@+id/bidDetailFragment"
@@ -28,4 +31,9 @@
             android:defaultValue="0"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/addAmountRequestFragment"
+        android:name="com.example.adminapp.AddAmountRequestFragment"
+        android:label="fragment_add_amount_request"
+        tools:layout="@layout/fragment_add_amount_request" />
 </navigation>
