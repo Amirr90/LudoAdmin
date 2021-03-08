@@ -85,11 +85,12 @@ public class HomeFragment extends Fragment implements AdapterInterface {
 
     public void setBidRecData(int position) {
 
+        bidModels.clear();
         String type;
         if (position == 0)
             type = "onGoing";
         else if (position == 1)
-            type = AppConstant.ON_GOING;
+            type = AppConstant.CLOSED;
         else type = "";
         getFireStoreReference().collection(BID_QUERY)
                 .whereEqualTo(GAME_STATUS, type)
@@ -109,7 +110,7 @@ public class HomeFragment extends Fragment implements AdapterInterface {
                     }
                     List<DocumentChange> snapshotList = queryDocumentSnapshots.getDocumentChanges();
                     Log.d(TAG, "loadBidData: " + snapshotList.size());
-                    bidModels.clear();
+
 
                     int active = 0;
                     int paired = 0;

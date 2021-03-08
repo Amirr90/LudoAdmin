@@ -51,18 +51,19 @@ public class BidDetailFragment extends Fragment {
 
         getBidData();
         bidDetailBinding.btnPlayer1.setOnClickListener(v -> {
-            String playerId = bidDetailBinding.tvSetter.getText().toString();
-            updateStatus(playerId);
-        });
-        bidDetailBinding.btnPlayer1.setOnClickListener(v -> {
             String playerId = bidDetailBinding.tvAccept.getText().toString();
-
-            updateStatus(playerId);
+            updateStatus(playerId, "player 1");
         });
+        bidDetailBinding.btnPlayer2.setOnClickListener(v -> {
+            String playerId = bidDetailBinding.tvSetter.getText().toString();
+            updateStatus(playerId, "player 2");
+        });
+
+
     }
 
-    private void updateStatus(String playerId) {
-        new AlertDialog.Builder(requireActivity()).setMessage("Confirm to update As player 1 loss??")
+    private void updateStatus(String playerId, String player) {
+        new AlertDialog.Builder(requireActivity()).setMessage("Confirm to update As player " + player + " winner??")
                 .setPositiveButton("Yes", (dialog, which) -> updateAsLoos(playerId)).setNegativeButton("No", (dialog, which) -> {
         }).show();
     }

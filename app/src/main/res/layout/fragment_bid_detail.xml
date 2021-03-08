@@ -27,25 +27,27 @@
 
         <ScrollView
             android:id="@+id/scrollView2"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/btnPlayer1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:padding="10dp">
 
                 <com.zolad.zoominimageview.ZoomInImageView
                     android:id="@+id/iv_auto_image_slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="800dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:loadCustomImage="@{bidModel.image}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tvResultUploadedBy"
+                    app:layout_constraintStart_toStartOf="@+id/tvResultUploadedBy"
                     app:layout_constraintTop_toBottomOf="@+id/tvResultUploadedBy" />
 
                 <TextView
@@ -74,23 +76,25 @@
 
 
                 <TextView
+                    android:gravity="center"
                     android:id="@+id/textView25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
-                    android:text="@string/accepted_by"
+                    android:text="Bid Accepted By\n(Player 2)"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:visibility="@{bidModel.bidAccepterName==null?View.GONE:View.VISIBLE}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvBidingAmount" />
 
                 <TextView
+                    android:gravity="center"
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/poppins"
-                    android:text="@string/bidder_name"
+                    android:text="Bid Created By\n(Player 1)"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView25" />
@@ -387,6 +391,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:background="@{bidModel.bidStatus?Color.parseColor(`#ff3300`):Color.parseColor(`#00e600`)}"
+            android:enabled="@{!bidModel.gameStatus.equals(AppConstant.CLOSED)}"
             android:text="Player 1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnPlayer2"
@@ -401,6 +406,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:background="@{bidModel.contactDetails==null?Color.parseColor(`#00e600`):Color.parseColor(`#ff3300`)}"
+            android:enabled="@{!bidModel.gameStatus.equals(AppConstant.CLOSED)}"
             android:text="Player 2"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
