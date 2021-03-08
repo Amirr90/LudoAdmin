@@ -76,11 +76,11 @@
 
 
                 <TextView
-                    android:gravity="center"
                     android:id="@+id/textView25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
+                    android:gravity="center"
                     android:text="Bid Accepted By\n(Player 2)"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:visibility="@{bidModel.bidAccepterName==null?View.GONE:View.VISIBLE}"
@@ -88,12 +88,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvBidingAmount" />
 
                 <TextView
-                    android:gravity="center"
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/poppins"
+                    android:gravity="center"
                     android:text="Bid Created By\n(Player 1)"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintStart_toStartOf="parent"
@@ -380,6 +380,24 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+                <TextView
+                    android:id="@+id/tvBidAcceptId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{bidModel.bidAcceptBy}"
+                    android:visibility="gone"
+                    tools:layout_editor_absoluteX="41dp"
+                    tools:layout_editor_absoluteY="27dp" />
+
+                <TextView
+                    android:id="@+id/tvBidCreatorId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{bidModel.uid}"
+                    android:visibility="gone"
+                    tools:layout_editor_absoluteX="286dp"
+                    tools:layout_editor_absoluteY="45dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

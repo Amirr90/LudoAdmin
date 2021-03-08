@@ -51,11 +51,11 @@ public class BidDetailFragment extends Fragment {
 
         getBidData();
         bidDetailBinding.btnPlayer1.setOnClickListener(v -> {
-            String playerId = bidDetailBinding.tvAccept.getText().toString();
+            String playerId = bidDetailBinding.tvBidAcceptId.getText().toString();
             updateStatus(playerId, "player 1");
         });
         bidDetailBinding.btnPlayer2.setOnClickListener(v -> {
-            String playerId = bidDetailBinding.tvSetter.getText().toString();
+            String playerId = bidDetailBinding.tvBidCreatorId.getText().toString();
             updateStatus(playerId, "player 2");
         });
 
