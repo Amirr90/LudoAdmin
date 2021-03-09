@@ -59,7 +59,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{addMoney.getString(`transactionId`)}"
+            android:text="@{`TId: `+addMoney.getString(`transactionId`)+`   mob: `+addMoney.getString(`number`)}"
             app:layout_constraintStart_toStartOf="@+id/textView27"
             app:layout_constraintTop_toBottomOf="@+id/textView27" />
     </androidx.constraintlayout.widget.ConstraintLayout>

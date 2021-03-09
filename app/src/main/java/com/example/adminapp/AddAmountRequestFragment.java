@@ -25,6 +25,8 @@ import com.example.adminapp.utils.ApiUtils;
 import com.example.adminapp.utils.AppConstant;
 import com.example.adminapp.utils.AppUtils;
 import com.example.adminapp.utils.Utils;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
 
@@ -63,7 +65,6 @@ public class AddAmountRequestFragment extends Fragment implements AdapterInterfa
     }
 
     private void loadData() {
-
         Utils.getFireStoreReference().collection(AppConstant.ADD_MONEY_REQUEST)
                 .orderBy(AppConstant.TIMESTAMP, Query.Direction.DESCENDING)
                 .limit(25)
@@ -80,23 +81,36 @@ public class AddAmountRequestFragment extends Fragment implements AdapterInterfa
     @Override
     public void onItemClicked(Object obj) {
         String id = (String) obj;
-        new AlertDialog.Builder(requireActivity()).setTitle("Want to update balance in user's account ??").setPositiveButton("Yes", (dialog, which) -> {
-            dialog.dismiss();
-            AppUtils.showRequestDialog(requireActivity());
-            ApiUtils.updateBalance(id, new ApiCallbackInterface() {
-                @Override
-                public void onSuccess(Object obj1) {
-                    AppUtils.hideDialog();
-                    Toast.makeText(requireActivity(), "Amount credited successfully !!", Toast.LENGTH_SHORT).show();
-                    loadData();
-                }
+        new AlertDialog.Builder(requireActivity()).setTitle("Want to update balance in user's account ??")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    dialog.dismiss();
+                    AppUtils.showRequestDialog(requireActivity());
+                    ApiUtils.updateBalance(id, new ApiCallbackInterface() {
+                        @Override
+                        public void onSuccess(Object obj1) {
+                            AppUtils.hideDialog();
+                            Toast.makeText(requireActivity(), "Amount credited successfully !!", Toast.LENGTH_SHORT).show();
+                            loadData();
+                        }
 
-                @Override
-                public void onFailed(String msg) {
-                    AppUtils.hideDialog();
-                    Toast.makeText(requireActivity(), msg, Toast.LENGTH_SHORT).show();
-                }
-            });
-        }).setNegativeButton("No", (dialog, which) -> dialog.dismiss()).show();
+                        @Override
+                        public void onFailed(String msg) {
+                            AppUtils.hideDialog();
+                            Toast.makeText(requireActivity(), msg, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }).setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                .setNeutralButton("Reject", (dialog, which) -> {
+                    rejectAddMoneyRequest(id);
+                })
+                .show();
+    }
+
+    private void rejectAddMoneyRequest(String id) {
+        Utils.getFireStoreReference().collection(AppConstant.ADD_MONEY_REQUEST).document(id).update("addMoneyStatus", "rejected")
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(requireActivity(), "Updated Successfully !!", Toast.LENGTH_SHORT).show();
+                    loadData();
+                }).addOnFailureListener(e -> Toast.makeText(requireActivity(), "unable to updateAdd money request, try again !! " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show());
     }
 }

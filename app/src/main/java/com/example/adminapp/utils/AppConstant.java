@@ -1,7 +1,5 @@
 package com.example.adminapp.utils;
 
-import android.app.Activity;
-
 public class AppConstant {
 
     public static final String BID_QUERY = "Bids";
