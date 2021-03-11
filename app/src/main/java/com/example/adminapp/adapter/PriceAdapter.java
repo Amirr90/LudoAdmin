@@ -39,6 +39,8 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.PriceVH> {
             selectedPosition = position;
             if (position == 2) {
                 HomeScreen.getInstance().navigate(R.id.action_homeFragment_to_addAmountRequestFragment);
+            } else if (position == 3) {
+                HomeScreen.getInstance().navigate(R.id.action_homeFragment_to_withdrawMoneyFragment);
             } else {
                 HomeFragment.getInstance().setBidRecData(position);
             }
@@ -56,6 +58,7 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.PriceVH> {
         }
 
     }
+
 
     private void setTextColor(PriceVH holder, int color, int color2) {
         holder.binding.textView5.setTextColor(color2);

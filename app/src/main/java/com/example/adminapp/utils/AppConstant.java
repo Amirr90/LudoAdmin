@@ -8,6 +8,7 @@ public class AppConstant {
     public static final String GAME_IMAGE = "gameImage";
     public static final String ON_GOING = "onGoing";
     public static final String AMOUNT = "amount";
+    public static final String WITHDRAW_MONEY_REQUEST = "WithdrawRequest";
     private static final String TAG = "Bid";
     private static final String BIDS = "Bids";
     public static final String UID = "uid";

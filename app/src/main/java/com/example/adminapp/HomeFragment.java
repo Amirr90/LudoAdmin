@@ -82,9 +82,7 @@ public class HomeFragment extends Fragment implements AdapterInterface {
                 DividerItemDecoration.VERTICAL));
         setBidRecData(selectedPosition);
     }
-
     public void setBidRecData(int position) {
-
         bidModels.clear();
         String type;
         if (position == 0)

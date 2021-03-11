@@ -24,6 +24,13 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_withdrawMoneyFragment"
+            app:destination="@id/withdrawMoneyFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/bidDetailFragment"
@@ -40,4 +47,26 @@
         android:name="com.example.adminapp.AddAmountRequestFragment"
         android:label="fragment_add_amount_request"
         tools:layout="@layout/fragment_add_amount_request" />
+    <fragment
+        android:id="@+id/withdrawMoneyFragment"
+        android:name="com.example.adminapp.WithdrawMoneyFragment"
+        android:label="fragment_withdraw_money"
+        tools:layout="@layout/fragment_withdraw_money" >
+        <action
+            android:id="@+id/action_withdrawMoneyFragment_to_requestMoneyDetailPage"
+            app:destination="@id/requestMoneyDetailPage"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestMoneyDetailPage"
+        android:name="com.example.adminapp.RequestMoneyDetailPage"
+        android:label="fragment_request_money_detail_page"
+        tools:layout="@layout/fragment_request_money_detail_page" >
+        <argument
+            android:name="id"
+            app:argType="string"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

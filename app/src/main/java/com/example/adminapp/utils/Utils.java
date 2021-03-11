@@ -12,6 +12,7 @@ public class Utils {
         models.add(new MainHeaderModel("Paired"));
         models.add(new MainHeaderModel("Completed"));
         models.add(new MainHeaderModel("AddMoneyRequest"));
+        models.add(new MainHeaderModel("WithdrawMoneyRequest"));
         return models;
     }
 

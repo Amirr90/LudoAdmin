@@ -2,6 +2,7 @@ package com.example.adminapp.interfaces;
 
 
 import com.example.adminapp.model.BidRes;
+import com.example.adminapp.model.UserRes;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -15,4 +16,6 @@ public interface Api {
     @GET("updateAmountToUserWallet")
     Call<BidRes> updateAmountToUserWallet(@Query("id") String uid);
 
+    @GET("getUserProfile")
+    Call<UserRes> getUserProfile(@Query("id") String id);
 }
