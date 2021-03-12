@@ -30,7 +30,7 @@ import java.util.List;
 public class RequestMoneyDetailPage extends Fragment {
     private static final String TAG = "RequestMoneyDetailPage";
 
-    String id;
+    String id, uid;
     FragmentRequestMoneyDetailPageBinding pageBinding;
     NavController navController;
 
@@ -47,11 +47,12 @@ public class RequestMoneyDetailPage extends Fragment {
         navController = Navigation.findNavController(view);
 
         id = RequestMoneyDetailPageArgs.fromBundle(getArguments()).getId();
+        uid = RequestMoneyDetailPageArgs.fromBundle(getArguments()).getUid();
         if (null == id) {
             Log.d(TAG, "onViewCreated: id Not found !!");
             return;
         }
-        getUserProfile(id);
+        getUserProfile(uid);
 
     }
 
@@ -73,12 +74,15 @@ public class RequestMoneyDetailPage extends Fragment {
     }
 
     private void setUserProfileData(Object obj) {
-        UserRes userRes = (UserRes) obj;
 
-        if (null != userRes && !userRes.getResponseValue().isEmpty()) {
-            UserModel userModel = userRes.getResponseValue().get(0);
+        List<UserModel> userRes = (List<UserModel>) obj;
+
+        if (null != userRes && !userRes.isEmpty()) {
+            UserModel userModel = userRes.get(0);
+
+            Log.d(TAG, "setUserProfileData: " + userModel.getName());
             pageBinding.setUser(userModel);
-        } else Toast.makeText(requireActivity(), "No Data Found !!", Toast.LENGTH_SHORT).show();
+        } else Log.d(TAG, "setUserProfileData: \"No Data Found !!\"");
 
     }
 }

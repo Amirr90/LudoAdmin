@@ -3,23 +3,23 @@ package com.example.adminapp.model;
 public class UserModel {
 
     String name;
-    String credits;
-    String invest;
-    String earn;
+    double credits;
+    double invest;
+    double earn;
 
     public String getName() {
         return name;
     }
 
-    public String getCredits() {
+    public double getCredits() {
         return credits;
     }
 
-    public String getInvest() {
+    public double getInvest() {
         return invest;
     }
 
-    public String getEarn() {
+    public double getEarn() {
         return earn;
     }
 }

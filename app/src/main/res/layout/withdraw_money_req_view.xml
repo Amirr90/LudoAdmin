@@ -26,7 +26,7 @@
         android:background="?attr/selectableItemBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="@{()->adapterInterface.onItemClicked(addMoney.id)}"
+        android:onClick="@{()->adapterInterface.onItemClicked(addMoney)}"
         android:padding="10dp"
         android:focusable="true">
 

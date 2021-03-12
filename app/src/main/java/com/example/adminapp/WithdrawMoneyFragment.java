@@ -88,8 +88,10 @@ public class WithdrawMoneyFragment extends Fragment implements AdapterInterface 
 
     @Override
     public void onItemClicked(Object obj) {
+        DocumentSnapshot snapshot = (DocumentSnapshot) obj;
         WithdrawMoneyFragmentDirections.ActionWithdrawMoneyFragmentToRequestMoneyDetailPage action = WithdrawMoneyFragmentDirections.actionWithdrawMoneyFragmentToRequestMoneyDetailPage();
-        action.setId((String) obj);
+        action.setId(snapshot.getId());
+        action.setUid(snapshot.getString(AppConstant.UID));
         navController.navigate(action);
     }
 

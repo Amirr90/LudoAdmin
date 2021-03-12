@@ -16,6 +16,6 @@ public interface Api {
     @GET("updateAmountToUserWallet")
     Call<BidRes> updateAmountToUserWallet(@Query("id") String uid);
 
-    @GET("getUserProfile")
-    Call<UserRes> getUserProfile(@Query("id") String id);
+    @GET("getUser")
+    Call<UserRes> getUserProfile(@Query("uid") String id);
 }
